@@ -42,4 +42,4 @@ nvm use 18.17.0
 - 
 
 ## Sample of application running (until now) so far
-![test page](https://raw.githubusercontent.com/mauriciogoncalves/docker-php-dev-environment/main/web/images/page.gif)
+![test page](https://raw.githubusercontent.com/mauriciogoncalves/playgroundNextJs/main/public/images/sample.gif)
