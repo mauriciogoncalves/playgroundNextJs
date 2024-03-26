@@ -13,7 +13,6 @@ export default function HeaderLinksPrimaryBar() {
         setMenuAnchorEl(null);
     };
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        console.log(1);
         setMenuAnchorEl(event.currentTarget);
     };
     let currentlyHovering = false;
