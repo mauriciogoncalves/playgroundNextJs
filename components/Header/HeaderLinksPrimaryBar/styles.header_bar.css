@@ -1,0 +1,49 @@
+.header-links-middle {
+    margin: auto;
+}
+.header-links-middle > * {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.headerLinksBarButton {
+    white-space: nowrap;
+}
+.headerFlexRow {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.header-links-middle .flexRow div button {
+    margin: 0 1px 0 0;
+    border-radius: 0;
+}
+.flexRowWrap {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.header-links-right {
+    margin-left: auto;
+}
+.header-links-left {
+    margin-right: auto;
+}
+.flexRow.header-links-right {
+    gap: 10px;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPopover-paper.MuiMenu-paper:before {
+    border-top: 1px solid #c1c1c14a !important;
+    border-left: 1px solid #c1c1c14a !important;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPopover-paper.MuiMenu-paper {
+    border: 1px solid #c1c1c14a !important;
+}
