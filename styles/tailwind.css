@@ -1,0 +1,78 @@
+@import '../components/Footer/FooterLinksBar/styles.footer_bar.css';
+@import '../components/Header/HeaderLinksPrimaryBar/styles.header_bar.css';
+@import '../components/Footer/Copyright/styles.copyright.css';
+@import '../components/Asset/Logo/style.main_logo.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    min-height: 100vh;
+}
+.height100 {
+    height: 100%;
+}
+.pointer-events-none {
+    pointer-events: none;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+    background: #ffff
+}
+.MuiAvatar-circular {
+    border-radius: 50% !important;
+}
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+section.loginSection {
+    height: 100%;
+}
+.loginSection > main {
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    color : rgb(25,118,210)
+}
+.flexCenter {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+.flexMainPage {
+    height: 100vh;
+    min-width: 100vw;
+    z-index: 0;
+    position: relative;
+    justify-content: space-between;
+}
+.mainSection {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.MuiAvatar-root {
+    border-radius: 0;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+button.MuiButton-containedSizeMedium.MuiButton-colorPrimary.MuiButton-fullWidth.MuiButton-root.MuiButton-contained {
+    padding: 15px;
+}
+button.focus\:outline-none.h-full {
+    padding: 15px;
+    margin-right: -10px;
+    margin-top: -1px;
+}
