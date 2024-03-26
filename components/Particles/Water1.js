@@ -3,46 +3,41 @@ import {useEffect} from 'react';
 
 export default function Water1() {
 
-
     useEffect(() => {
         if (document.readyState !== 'complete') {
             const handler = () => {
-                console.log('load');
+                console.log('load Water1');
             };
             window.addEventListener('load', handler);
-
             return () => {
                 window.removeEventListener('load', handler);
             };
         } else {
             const timeout = window.setTimeout(() => {
-                console.log('timeout');
                 doTheMagic(window, "c");
             }, 0);
             return () => window.clearTimeout(timeout);
         }
     }, []);
+
     const doTheMagic = function (w, canvasId) {
         w.requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.mozRequestAnimationFrame;
         let canvas, ctx;
         let mouse = {x: 0, y: 0, px: 0, py: 0, down: false};
 
-
-        var canvas_width = 500; //Needs to be a multiple of the resolution value below.
-        var canvas_height = 500; //This too.
-
+        let canvas_width = 500; //Needs to be a multiple of the resolution value below.
+        let canvas_height = 500; //This too.
 
         canvas = document.getElementById(canvasId);
         resizeCanvasToDisplaySize(canvas);
         canvas_width = canvas.width * 0.8;
         canvas_height = canvas.height * 0.8;
 
-
-        var resolution = 10; //Width and height of each cell in the grid.
-        var pen_size = 100; //Radius around the mouse cursor coordinates to reach when stirring
-        var num_cols = canvas_width / resolution; //This value is the number of columns in the grid.
-        var num_rows = canvas_height / resolution; //This is number of rows.
-        var speck_count = 4000; //This determines how many particles will be made.
+        let resolution = 10; //Width and height of each cell in the grid.
+        let pen_size = 100; //Radius around the mouse cursor coordinates to reach when stirring
+        let num_cols = canvas_width / resolution; //This value is the number of columns in the grid.
+        let num_rows = canvas_height / resolution; //This is number of rows.
+        let speck_count = 4000; //This determines how many particles will be made.
         let vec_cells = [];
         let particles = [];
 
@@ -50,7 +45,6 @@ export default function Water1() {
             canvas = document.getElementById(canvasId);
             canvas.style.background = "rgb(0,0,0,0)";
             resizeCanvasToDisplaySize(canvas);
-
 
             ctx = canvas.getContext("2d");
             canvas.width = canvas_width;
@@ -155,16 +149,10 @@ export default function Water1() {
                 }
             }
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            //console.log("asdas", globalVariable)
-            if (false){
-                ctx.strokeStyle = "rgb(107,114,128)";
-            } else {
-                ctx.strokeStyle = "#1976d2";
-            }
+            ctx.strokeStyle = "#1976d2";
             update_particle();
             for (let i = 0; i < vec_cells.length; i++) {
                 let cell_datas = vec_cells[i];
-
                 for (let j = 0; j < cell_datas.length; j++) {
                     let cell_data = cell_datas[j];
 
@@ -175,9 +163,7 @@ export default function Water1() {
             mouse.px = mouse.x;
             mouse.py = mouse.y;
             requestAnimationFrame(draw);
-
         }
-
 
         function change_cell_velocity(cell_data, mvelX, mvelY, pen_size) {
             let dx = cell_data.x - mouse.x;
@@ -197,12 +183,11 @@ export default function Water1() {
             let pressure_x = (
                 cell_data.up_left.xv * 0.5 //Divided in half because it's diagonal
                 + cell_data.left.xv
-                + cell_data.down_left.xv * 0.5 //Same
-                - cell_data.up_right.xv * 0.5 //Same
+                + cell_data.down_left.xv * 0.5  //Same
+                - cell_data.up_right.xv * 0.5   //Same
                 - cell_data.right.xv
                 - cell_data.down_right.xv * 0.5 //Same
             );
-
             let pressure_y = (
                 cell_data.up_left.yv * 0.5
                 + cell_data.up.yv
@@ -211,7 +196,6 @@ export default function Water1() {
                 - cell_data.down.yv
                 - cell_data.down_right.yv * 0.5
             );
-
             cell_data.pressure = (pressure_x + pressure_y) * 0.25;
         }
 
@@ -245,7 +229,6 @@ export default function Water1() {
             this.xv = 0;
             this.yv = 0;
             this.pressure = 0;
-
         }
 
         function Particle(x, y) {
@@ -254,8 +237,7 @@ export default function Water1() {
             this.xv = this.yv = 0;
         }
 
-        function mouse_down_handler(e) {
-            ////e.preventDefault(); //Prevents the default action from happening (e.g. navigation)
+        function mouse_down_handler(_ignored) {
             mouse.down = true; //Sets the mouse object's "down" value to true
         }
 
@@ -264,7 +246,6 @@ export default function Water1() {
         }
 
         function touch_start_handler(e) {
-            //e.preventDefault(); //Prevents the default action from happening (e.g. navigation)
             let rect = canvas.getBoundingClientRect();
             mouse.x = mouse.px = e.touches[0].pageX - rect.left; //Set both previous and current coordinates
             mouse.y = mouse.py = e.touches[0].pageY - rect.top;
@@ -276,7 +257,6 @@ export default function Water1() {
         }
 
         function mouse_move_handler(e) {
-            //e.preventDefault(); //Prevents the default action from happening
             mouse.px = mouse.x;
             mouse.py = mouse.y;
             let realPosition = getMousePos(canvas, e)
@@ -285,7 +265,7 @@ export default function Water1() {
         }
 
         function getMousePos(canvas, evt) {
-            var rect = canvas.getBoundingClientRect();
+            let rect = canvas.getBoundingClientRect();
             return {
                 x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
                 y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
@@ -301,32 +281,26 @@ export default function Water1() {
             mouse.y = e.touches[0].pageY - rect.top;
         }
 
-
         function resizeCanvasToDisplaySize(canvas) {
             // look up the size the canvas is being displayed
             const width = canvas.clientWidth;
             const height = canvas.clientHeight;
-
             // If it's resolution does not match change it
             if (canvas.width !== width || canvas.height !== height) {
                 canvas.width = 1000;
-                canvas.height = 1000;
+                canvas.height = 500;
                 return true;
+            } else {
+                return false;
             }
-
-            return false;
         }
-
         w.Fluid = {
             initialize: init
         }
         w.Fluid.initialize();
     };
 
-
-    return (
-        <>
-            <canvas style={{width: "100%", height: "100%", zIndex: "-1"}} id="c"></canvas>
-        </>
-    )
+    return (<>
+        <canvas style={{width: "100%", height: "100%", zIndex: "-1"}} id="c"></canvas>
+    </>)
 }

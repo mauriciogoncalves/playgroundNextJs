@@ -25,7 +25,6 @@ export default function InputPassword({...props}) {
 
     function isValid() {
         setTouched(true);
-        console.log("valid IS", wasTouched, value.length > 3)
         return value.length > 3;
     }
 
