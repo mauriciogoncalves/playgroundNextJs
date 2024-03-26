@@ -41,5 +41,5 @@ nvm use 18.17.0
 - **Prettier** - to help on automatic format code
 - 
 
-## Sample of application running (until now) so far
+## Sample of application running (until now) 
 ![test page](https://raw.githubusercontent.com/mauriciogoncalves/playgroundNextJs/main/public/images/sample.gif)
