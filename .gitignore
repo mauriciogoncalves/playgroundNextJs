@@ -1,0 +1,5 @@
+
+/.npm-only-allow
+*.DS_Store
+/node_modules/
+/.next/
