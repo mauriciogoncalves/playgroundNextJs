@@ -1,5 +1,5 @@
 import React from "react";
-import SignInSide from "../../../components/SignInSide/SignInSide";
+import SignInSide from "../../../../components/SignInSide/SignInSide";
 
 export default function Login() {
     return (

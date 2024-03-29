@@ -9,8 +9,7 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import InputEmail from "../../../components/Input/Fields/Email/InputEmail";
-
+import InputEmail from "../../../../components/Input/Fields/Email/InputEmail";
 export default function ForgotPassword() {
     const submitForgotPasswordEmail = async () => {
         const response = await fetch("/api/health", {
@@ -21,7 +20,7 @@ export default function ForgotPassword() {
             }
         });
         const data = await response.json();
-
+        console.log(data);
     }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

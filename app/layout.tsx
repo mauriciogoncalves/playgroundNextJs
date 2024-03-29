@@ -8,7 +8,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <html lang="en">
         <head>
             <title>Playground NextJs</title>
-            <link rel="shortcut icon" href="/images/icon.svg" type="image/x-icon"  />
+            <link rel="shortcut icon" href="/images/icon.svg" type="image/x-icon"/>
         </head>
         <body>
         <AppRouterCacheProvider options={{key: 'css', enableCssLayer: false}}>
