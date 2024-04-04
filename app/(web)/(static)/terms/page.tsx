@@ -15,7 +15,7 @@ export default function TermsOfServices() {
                                         Service, You agree to the collection and use of information in accordance with
                                         this Privacy Policy. This Privacy Policy has been created with the help of
                                         the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
-                                               target="_blank">Free Privacy Policy Generator</a>.</p>
+                                               target="_blank" rel="noreferrer">Free Privacy Policy Generator</a>.</p>
                                     <h2>Interpretation and Definitions</h2>
                                     <h3>Interpretation</h3>
                                     <p>The words of which the initial letter is capitalized have meanings defined under
@@ -74,8 +74,8 @@ export default function TermsOfServices() {
                                         </li>
                                         <li>
                                             <p><strong>Website</strong> refers to mau.servebeer.com, accessible from <a
-                                                href="http://mau.servebeer.com&quote; rel=&quote;external nofollow noopener"
-                                                target="_blank">http://mau.servebeer.com</a></p>
+                                                href="//mau.servebeer.com&quote; rel=&quote;external nofollow noopener"
+                                                rel="noreferrer" target="_blank">mau.servebeer.com</a></p>
                                         </li>
                                         <li>
                                             <p><strong>You</strong> means the individual accessing or using the Service,
@@ -144,8 +144,8 @@ export default function TermsOfServices() {
                                         Your personal computer or mobile device when You go offline, while Session
                                         Cookies are deleted as soon as You close Your web browser. Learn more about
                                         cookies on the <a
-                                            href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
-                                            target="_blank">Free Privacy Policy website</a> article.</p>
+                                            href="//www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking"
+                                            rel="noreferrer" target="_blank">Free Privacy Policy website</a> article.</p>
                                     <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
                                     <ul>
                                         <li>
