@@ -14,9 +14,6 @@ body {
 .pointer-events-none {
     pointer-events: none;
 }
-.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
-    background: #ffff
-}
 .MuiAvatar-circular {
     border-radius: 50% !important;
 }
@@ -36,7 +33,7 @@ section.loginSection {
     display: flex;
     flex-direction: row;
     align-content: center;
-    color : rgb(25,118,210)
+    color: rgb(25, 118, 210)
 }
 .flexCenter {
     display: flex;
@@ -75,4 +72,31 @@ button.focus\:outline-none.h-full {
     padding: 15px;
     margin-right: -10px;
     margin-top: -1px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: unset;
+}
+
+.shakeWrongInput {
+    animation: shakeWrongPasswordAnimation 0.4s ease-in-out 0s 2 !important;
+}
+@keyframes shakeWrongPasswordAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

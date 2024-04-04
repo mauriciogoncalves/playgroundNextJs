@@ -8,27 +8,33 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import React from "react";
-import InputEmail from "../../../../components/Input/Fields/Email/InputEmail";
+import React, { useRef } from "react";
+import InputEmail, { InputEmailRef }  from "../../../../components/Input/Fields/Email/InputEmail";
+
 export default function ForgotPassword() {
-    const submitForgotPasswordEmail = async () => {
-        const response = await fetch("/api/health", {
+
+    const emailRef = useRef<InputEmailRef>(null);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (!emailRef.current.isValid()) {
+            return emailRef.current.markAsError();
+        }
+        const formData = new FormData(event.currentTarget);
+        const response = await fetch("/api/user/forgot", {
             method: 'POST',
-            body: JSON.stringify({}),
+            body: JSON.stringify({email: formData.get('email')}),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         const data = await response.json();
         console.log(data);
-    }
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email')
-        });
+        if (typeof data.success != 'undefined' && data.success === true) {
+            return emailRef.current.markAsSuccess();
+        } else {
+            return emailRef.current.markAsError();
+        }
     };
 
     return (
@@ -38,18 +44,12 @@ export default function ForgotPassword() {
             <Grid container component="main" sx={{height: '80vh', display: "flex", flex: 1}}>
 
                 <Fade in={true} timeout={2200}>
-                    <Grid
-                        item
-                        xs={false}
-                        sm={4}
-                        md={7}
-                        sx={{
-                            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers&2)',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                        }}
-                    />
+                    <Grid item xs={false} sm={4} md={7} sx={{
+                        backgroundImage: 'url(https://source.unsplash.com/random?wallpapers&2)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    }}/>
                 </Fade>
                 <Zoom in={true}>
                     <Grid item xs={12} sm={8} md={5} className={"flexCenter pb-2.5"}>
@@ -63,14 +63,11 @@ export default function ForgotPassword() {
                             </Typography>
                             <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 1}}>
                                 <InputEmail
+                                    ref={emailRef}
                                     required={true}
-                                    margin="normal"
-                                    fullWidth
                                     id="email"
                                     label="Email Address"
                                     name="email"
-                                    autoComplete="email"
-                                    autoFocus
                                 />
                                 <Button type="submit" fullWidth variant="contained" sx={{mt: 3, mb: 2}}>
                                     <Typography component="p">
@@ -99,6 +96,5 @@ export default function ForgotPassword() {
                 </Zoom>
             </Grid>
         </section>
-
     );
 }

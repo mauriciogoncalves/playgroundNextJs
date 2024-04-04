@@ -54,13 +54,9 @@ export default function SignInSide() {
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{mt: 1}}>
                             <InputEmail
                                 required={true}
-                                margin="normal"
-                                fullWidth
                                 id="email"
                                 label="Email Address"
                                 name="email"
-                                autoComplete="email"
-                                autoFocus
                             />
                             <InputPassword
                                 margin="normal"
